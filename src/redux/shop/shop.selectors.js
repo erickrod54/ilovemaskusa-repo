@@ -19,3 +19,16 @@ export const selectCollection = collectionUrlParam =>
     [selectCollections],
     collections => collections[collectionUrlParam]
 );
+
+// ADD THIS SELECTOR
+export const selectAllItems = createSelector(
+  // code we discussed here
+  selectCollectionsForPreview,
+  (collections) => Object.keys(collections).reduce((acc, curr) => {
+    const { items } = collections[curr];
+    items.forEach(item => {
+      acc.push(item);
+    })
+    return acc;
+  }, [])
+);
