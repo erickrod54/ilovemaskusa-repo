@@ -2,7 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import shopReducer from "../../redux/shop/shop.reducer";
+/**es el que utilizaremos para traernos la data 
+ * y viene desde el shop.selectors
+ */
+//import selectAllItems from "../../redux/shop/shop.selectors";
 
 //select cartItems.. pero yo quiero seleccionar todos los items de Shop_Data
 import "./stock.styles.scss";
@@ -28,9 +31,11 @@ const StockPage = () => (
     </div>
   </div>
 );
-
+/**en este mapStateToProps nos traeremos las propiedades
+ * que necesitamos para llenar todos los items
+ */
 const mapStateToProps = createStructuredSelector({
-  shopReducer
+ 
 });
 
 export default connect(mapStateToProps)(StockPage);
